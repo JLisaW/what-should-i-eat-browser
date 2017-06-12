@@ -1,0 +1,22 @@
+<table id="user-moods-table" class="table table-striped signed-in-view">
+
+  <thead>
+    <tr>
+      <th>Mood</th>
+      <th>Food</th>
+    </tr>
+  </thead>
+{{#each moods as |mood|}}
+      <tr>
+        <td>{{mood.id}}</td>
+        <td>{{mood.food}}</td>
+        <td><button moodId="{{mood.id}}" type="click" class="btn btn-danger delete-mood-button">Delete</button></td>
+        <td><form class="update-mood-by-id-form" moodId="{{mood.id}}">
+            <input type="text" id="update-mood-by-id-button" name="mood[foods]">
+            <input type="hidden" name="id" value="{{mood.id}}">
+        <button moodId="{{mood.id}}" type="submit" task="text" class="btn btn-info update-mood-button">Edit</button>
+      </form>
+      </tr>
+
+{{/each}}
+</table>
