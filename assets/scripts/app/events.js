@@ -12,6 +12,7 @@ const onCreateMood = function (event) {
       .catch(ui.createMoodError)
 }
 
+// my moods
 const onGetUserMood = function (event) {
   event.preventDefault()
   api.getUserMoods()
@@ -28,6 +29,7 @@ const onDeleteMood = function (event) {
     .catch(ui.deleteMoodFailure)
 }
 
+// edit custom moods
 const onUpdateMood = function (event) {
   event.preventDefault()
   const moodId = $(this).attr('moodId')
@@ -41,11 +43,9 @@ const onUpdateMood = function (event) {
 const addHandlers = () => {
   $('#createMood').on('submit', onCreateMood)
   $('#getUserMoods').on('click', onGetUserMoods)
-  $('#content').on('click', '.delete-mood-button', onDeleteMood)
-  $('#content').on('submit', '.update-mood-by-id-form', onUpdateMood)
-  $('#hideSignOut').hide()
-  $('#hideChangePW').hide()
-  $('#createTask').addClass('hide-element')
+  $('#content').on('click', onDeleteMood)
+  $('#content').on('submit', onUpdateMood)
+  $('#createMood').addClass('hide-element')
 }
 
 module.exports = {
