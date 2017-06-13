@@ -15,6 +15,10 @@ require('./example')
 
 const authEvents = require('./auth/events.js')
 
+const appEvents = require('./app/events.js')
+
+// On document ready
 $(() => {
   authEvents.addHandlers()
+  appEvents.addHandlers()
 })

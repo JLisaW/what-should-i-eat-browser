@@ -13,11 +13,11 @@ const onCreateMood = function (event) {
 }
 
 // my moods
-const onGetUserMood = function (event) {
+const onGetUserMoods = function (event) {
   event.preventDefault()
   api.getUserMoods()
-        .then(ui.getUserTasksSuccess)
-        .catch(ui.getUserTasksFailure)
+        .then(ui.getUserMoodsSuccess)
+        .catch(ui.getUserMoodsFailure)
 }
 
 const onDeleteMood = function (event) {
@@ -42,7 +42,7 @@ const onUpdateMood = function (event) {
 
 const addHandlers = () => {
   $('#createMood').on('submit', onCreateMood)
-  $('#getUserMoods').on('click', onGetUserMoods)
+  $('#getUserMoods').on('submit', onGetUserMoods)
   $('#content').on('click', onDeleteMood)
   $('#content').on('submit', onUpdateMood)
   $('#createMood').addClass('hide-element')

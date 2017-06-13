@@ -3,7 +3,6 @@
 
 <head>
   <title>Food for Mood</title>
-
   <!-- Do not add `link` tags unless you know what you are doing -->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
@@ -23,22 +22,22 @@
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="#sign-up" class="sign-up" data-toggle="modal" data-target="#signUpModal">Sign-Up</a>
+          <a data-toggle="modal" data-target="#signUpModal">Sign-Up</a>
         </li>
         <li>
-          <a href="#sign-in" class="sign-in" data-toggle="modal" data-target="#signInModal">Sign-In</a>
+          <a data-toggle="modal" data-target="#signInModal">Sign-In</a>
         </li>
         <li>
-          <a href="#sign-out" class="sign-out" type="click" data-toggle="modal" data-target="#signOutModal" id="hideSignOut">Sign Out</a>
+          <a type="click" data-toggle="modal" data-target="#signOutModal" id="hideSignOut">Sign Out</a>
         </li>
         <li>
-          <a href="#change-password" class="change-password" data-toggle="modal" data-target="#changePWModal" id="hideChangePW">Change Password</a>
+          <a class="change-password" data-toggle="modal" data-target="#changePWModal" id="hideChangePW">Change Password</a>
         </li>
       </ul>
     </div>
     <!-- /.navbar-collapse -->
   </nav>
-  <!-- /.intro-header -->
+  <!-- /Fixed navbar -->
   <form id="sign-up">
     <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myForgetModalLabel" aria-hidden="true">
 
@@ -157,12 +156,13 @@
           </div>
         </div>
       </form>
+
   <!-- Page Content -->
   <div class="content-section-a">
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-5 col-sm-6">
+        <div class="col-sm-6">
           <hr class="section-heading-spacer">
           <div class="clearfix"></div>
         </div>
@@ -175,26 +175,25 @@
 
   </div>
   <!-- /.content-section-a -->
-
-  <a name="contact"></a>
-  <div class="banner">
-
     <div class="container">
 
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-8">
         </div>
-        <div class="col-lg-6">
           <ul class="list-inline banner-social-buttons">
             <li>
-              <a class="btn btn-default btn-lg">
-                <span class="getUserMoods">My Moods</span></a>
+              <br>
+              <button class="btn btn-default btn-lg" id="getUserMoods" type="submit">
+                <span>My Moods</span></button>
+              </br>
             </li>
             <li>
-              <a class="btn btn-default btn-lg"> <span class="createMood">Custom Moods</span></a>
+              <button class="btn btn-default btn-lg" id="createMood" type="submit">
+                <span>Custom Moods</span>
+              </button>
             </li>
           </ul>
-        </div>
+
       </div>
       <div class="table">
         <table>
@@ -216,10 +215,6 @@
         </table>
       </div>
     </div
-    <!-- /.container -->
-
-  </div>
-  <!-- /.banner -->
 
   <!-- Footer -->
   <footer>
@@ -229,7 +224,5 @@
 
 
 </body>
-
-</html>
 
 </html>

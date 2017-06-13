@@ -50,5 +50,5 @@ module.exports = {
   createMood,
   updateMood,
   deleteMood,
-  getUserMood
+  getUserMoods
 }

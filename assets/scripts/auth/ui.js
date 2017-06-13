@@ -6,8 +6,7 @@ const api = require('./api.js')
 const signUpSuccess = (data) => {
   $('#signUpModal').modal('toggle')
   userMessage('You are now signed up, please sign in.')
-  $('#create').
-  ide()
+  $('#create').hide()
 }
 
 const signUpFailure = (response) => {
