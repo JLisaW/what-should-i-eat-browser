@@ -6,7 +6,7 @@ const api = require('./api.js')
 const signUpSuccess = (data) => {
   $('#signUpModal').modal('toggle')
   userMessage('You are now signed up, please sign in.')
-  $('#create').h
+  $('#create').
   ide()
 }
 
@@ -51,6 +51,13 @@ const changePasswordFailure = (response) => {
   $('#changePWModal').modal('toggle')
   userMessage('Unsuccessful password change.  Did you sign in?')
 }
+
+const userMessage = (txt) => {
+  const message = $('#message')[0]
+  $(message).text(txt)
+  setTimeout(function () { $('#message').text('') }, 3000)
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
