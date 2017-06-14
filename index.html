@@ -190,8 +190,10 @@
             </li>
     <fieldset>
       <form id="createMood">
-      <input type="text" name="mood" placeholder="Custom Mood">
-      <input class="btn btn-info" type="submit" name="submit" value="Create Custom Mood">
+      <input name="mood[title]" type="text" value="" placeholder="Create Custom Mood">
+      <input name="mood[food]" type="text" value="" placeholder="Food Item">
+
+      <button type="submit" class="btn btn-info">Create Mood</button>
     </form>
     </fieldset>
           </ul>

@@ -5,7 +5,7 @@ const api = require('./api.js')
 const showCustomMoodHB = require('../customMood.handlebars')
 
 const refreshTable = () => {
-  const showMoodHtml = showCustomMoodHB({ moods: store.userMoods })
+  const showMoodHtml = showCustomMoodHB({ moods: store.userMood })
   $('#content').empty()
   $('#content').append(showCustomMoodHtml)
 }

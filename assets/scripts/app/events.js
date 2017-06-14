@@ -21,7 +21,7 @@ const onCreateMood = function (event) {
 // my moods
 const onGetUserMoods = function (event) {
   event.preventDefault()
-  api.getUserMoods()
+  api.getUserMoods(data)
         .then(ui.getUserMoodsSuccess)
         .catch(ui.getUserMoodsFailure)
 }
