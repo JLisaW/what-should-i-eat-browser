@@ -12,7 +12,7 @@ const onRevealAddMood = function (event) {
 
 const onCreateMood = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
+  const data = getFormFields(this)
   api.createMood(data)
       .then(ui.createMoodSuccess)
       .catch(ui.createMoodError)

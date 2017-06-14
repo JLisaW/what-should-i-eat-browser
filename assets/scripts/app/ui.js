@@ -4,40 +4,39 @@ const store = require('../store.js')
 const api = require('./api.js')
 const showCustomMoodHB = require('../customMood.handlebars')
 
-const refreshTable = () => {
-  const showMoodHtml = showCustomMoodHB({ moods: moods.reponse })
-  $('#content').empty()
-  $('#content').append(showMoodHtml)
-}
+// const refreshTable = () => {
+//   const showMoodHtml = showCustomMoodHB({ moods: mood.response })
+//   $('#content').empty()
+//   $('#content').append(showMoodHtml)
+// }
 
 const createMoodSuccess = (response) => {
-  console.log('create mood success data.title is ', data.moods.title)
-  refreshTable()
-  $('input').val('')
+  console.log('create mood success response is ', response)
+  // store.moodId = response
+  const showCustomMoodHtml = showCustomMoodHB({mood: response})
+  $('#content').show()
+  $('#content').html(showCustomMoodHtml)
 }
 
-const createMoodError = (data) => {
-  console.log('create failed this is data.title ', data.mood.title)
-  // debugger
-  console.log('title is ', title)
+const createMoodError = (error) => {
   userMessage('Something went wrong, please try again.')
 }
 
-const updateMoodSuccess = (titleId) => {
-  store.userMoods = titleId.moods
+const updateMoodSuccess = (moodId) => {
+  // store.userMood = moodId.response
   api.getUserMoods()
     .then(getUserMoodsSuccess)
     .catch(getUserMoodsFailure)
 }
 
-const updateMoodFailure = (data) => {
+const updateMoodFailure = (error) => {
   userMessage('Something went wrong, please try again.')
-  store.userMoods = data.moods
+  // store.userMoods = data.moods
 }
 
 
 const getUserMoodsSuccess = (response) => {
-  console.log('response is ', response)
+  // console.log('response is ', response)
   // if (data.moods.length === 0) {
   //   userMessage('You have no custom moods.')
   // }
@@ -47,7 +46,7 @@ const getUserMoodsSuccess = (response) => {
 
 const getUserMoodsFailure = (response) => {
   console.log('get user mood response is ', response)
-  userMessage('Something went wrong, please try again.')
+  // userMessage('Something went wrong, please try again.')
 }
 
 const deleteMoodSuccess = () => {
@@ -60,11 +59,11 @@ const deleteMoodFailure = (data) => {
   userMessage('Something went wrong, please try again.')
 }
 
-const userMessage = (txt) => {
-  const message = $('#message')[0]
-  $(message).text(txt)
-  setTimeout(function () { $('#message').text('') }, 3000)
-}
+// const userMessage = (txt) => {
+//   const message = $('#message')[0]
+//   $(message).text(txt)
+//   setTimeout(function () { $('#message').text('') }, 3000)
+// }
 
 module.exports = {
   getUserMoodsFailure,
