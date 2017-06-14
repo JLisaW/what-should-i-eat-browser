@@ -20,8 +20,9 @@ const onCreateMood = function (event) {
 
 // my moods
 const onGetUserMoods = function (event) {
+  console.log('on get user moods fired')
   event.preventDefault()
-  api.getUserMoods(data)
+  api.getUserMoods()
         .then(ui.getUserMoodsSuccess)
         .catch(ui.getUserMoodsFailure)
 }
@@ -38,10 +39,10 @@ const onDeleteMood = function (event) {
 // edit custom moods
 const onUpdateMood = function (event) {
   event.preventDefault()
-  const moodId = $(this).attr('moodId')
+  const titleId = $(this).attr('titleId')
   const data = getFormFields(event.target)
   ui.refreshTable()
-  api.updateMood(moodId, data)
+  api.updateMood(titleId, data)
     .then(ui.updateMoodSuccess)
     .catch(ui.updateMoodFailure)
 }
@@ -51,7 +52,6 @@ const addHandlers = () => {
   $('#getUserMoods').on('click', onGetUserMoods)
   $('#content').on('click', onDeleteMood)
   $('#content').on('submit', onUpdateMood)
-  // $('#createMood').addClass('hide-element')
   $('#content').on('click', '.delete-mood-button', onDeleteMood)
   $('#content').on('submit', '.update-mood', onUpdateMood)
 }
