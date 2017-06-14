@@ -1,22 +1,30 @@
-<table id="user-moods-table" class="table table-striped signed-in-view">
+<html>
+<table id="custom-mood-table" class="table table-striped signed-in-view">
 
-  <thead>
-    <tr>
-      <th>Mood</th>
-      <th>Food</th>
-    </tr>
-  </thead>
-{{#each moods as |mood|}}
+
+{{#each titles as |title|}}
       <tr>
-        <td>{{mood.id}}</td>
-        <td>{{mood.food}}</td>
+        <td class="title-food">{{title.food}}</td>
+        <td>{{title.food}}</td>
+        <td><button titleId="{{title.id}}" type="click" class="btn btn-info view-mood-button">My Custom Moods</button></td>
         <td><button moodId="{{mood.id}}" type="click" class="btn btn-danger delete-mood-button">Delete</button></td>
-        <td><form class="update-mood-by-id-form" moodId="{{mood.id}}">
-            <input type="text" id="update-mood-by-id-button" name="mood[foods]">
-            <input type="hidden" name="id" value="{{mood.id}}">
-        <button moodId="{{mood.id}}" type="submit" task="text" class="btn btn-info update-mood-button">Edit</button>
-      </form>
+      <td>
+        <form class="update-mood-button" mood="{{mood.id}}">
+      <fieldset>
+        <input type="text" name="mood[title]" placeholder="Edit Mood">
+        <input type="submit" class="btn btn-info" name="submit" value="Update Mood">
+      </fieldset>
+    </form>
+      </td>
+      <td>
+        <form class="add-mood" moodId="{{mood.id}}">
+      <fieldset>
+        <input type="text" name="mood[food]" placeholder="Add Custom Mood">
+        <input type="submit" class="btn btn-success" name="submit" value="Add Custom Mood">
+      </fieldset>
+    </form>
+      </td>
       </tr>
-
-{{/each}}
+  {{/each}}
 </table>
+</html>

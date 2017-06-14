@@ -183,17 +183,18 @@
           <ul class="list-inline banner-social-buttons">
             <li>
               <br>
-              <button class="btn btn-default btn-lg" id="getUserMoods" type="submit">
-                <span>My Moods</span></button>
+              <button class="btn btn-default btn-lg" id="getUserMoods">
+                <span>My Moods</span>
+              </button>
               </br>
             </li>
-            <li>
-              <button class="btn btn-default btn-lg" id="createMood" type="submit">
-                <span>Custom Moods</span>
-              </button>
-            </li>
+    <fieldset>
+      <form id="createMood">
+      <input type="text" name="mood" placeholder="Custom Mood">
+      <input class="btn btn-info" type="submit" name="submit" value="Create Custom Mood">
+    </form>
+    </fieldset>
           </ul>
-
       </div>
       <div class="table">
         <table>
@@ -214,6 +215,9 @@
           </tr>
         </table>
       </div>
+  <!-- This is where handlebars inserts -->
+      <div id="content"></div>
+
     </div
 
   <!-- Footer -->

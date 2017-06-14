@@ -4,6 +4,12 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api.js')
 const ui = require('./ui.js')
 
+const onRevealAddMood = function (event) {
+  $('form#change-password').hide()
+  $('form#createMood').toggle()
+  $('#content').text('')
+}
+
 const onCreateMood = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -35,17 +41,19 @@ const onUpdateMood = function (event) {
   const moodId = $(this).attr('moodId')
   const data = getFormFields(event.target)
   ui.refreshTable()
-  api.updateTask(moodId, data)
+  api.updateMood(moodId, data)
     .then(ui.updateMoodSuccess)
     .catch(ui.updateMoodFailure)
 }
 
 const addHandlers = () => {
   $('#createMood').on('submit', onCreateMood)
-  $('#getUserMoods').on('submit', onGetUserMoods)
+  $('#getUserMoods').on('click', onGetUserMoods)
   $('#content').on('click', onDeleteMood)
   $('#content').on('submit', onUpdateMood)
-  $('#createMood').addClass('hide-element')
+  // $('#createMood').addClass('hide-element')
+  $('#content').on('click', '.delete-mood-button', onDeleteMood)
+  $('#content').on('submit', '.update-mood', onUpdateMood)
 }
 
 module.exports = {

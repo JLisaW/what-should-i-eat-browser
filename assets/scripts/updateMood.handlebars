@@ -1,0 +1,18 @@
+<table id="custom-mood-table" class="table table-striped signed-in-view">
+
+{{#each moods as |mood|}}
+      <tr>
+        <td class="mood-title create">{{mood.food}}</td>
+        <td><button moodId="{{mood.id}}" type="click" class="btn btn-danger delete-mood-button">Delete</button></td>
+
+        <td>
+          <form class="edit-mood" moodId="{{mood.id}}">
+          <fieldset>
+            <input type="text" name="mood[food]" food="{{mood.food}}" placeholder="Edit food">
+        <input type="submit" class="btn btn-info" name="submit" value="Update Mood">
+      </fieldset>
+      </form>
+      </tr>
+
+{{/each}}
+</table>

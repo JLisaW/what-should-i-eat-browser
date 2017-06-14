@@ -2,6 +2,13 @@
 
 const store = require('../store.js')
 const api = require('./api.js')
+const showCustomMoodHB = require('../customMood.handlebars')
+
+const refreshTable = () => {
+  const showMoodHtml = showCustomMoodHB({ moods: store.userMoods })
+  $('#content').empty()
+  $('#content').append(showCustomMoodHtml)
+}
 
 const createMoodSuccess = (data) => {
   store.userMoods = data.moods
@@ -24,9 +31,10 @@ const updateMoodFailure = (data) => {
   store.userMoods = data.moods
 }
 
+
 const getUserMoodsSuccess = (data) => {
   if (data.moods.length === 0) {
-    userMessage('You have no moods.')
+    userMessage('You have no custom moods.')
   }
 }
 
