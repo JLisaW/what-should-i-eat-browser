@@ -36,15 +36,13 @@ const deleteMood = (moodId) => {
   })
 }
 
-const getUserMoods = (data) => {
-  console.log('get user moods data is', data)
+const getUserMoods = () => {
   return $.ajax({
     url: config.apiOrigin + '/moods/',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    },
-    data: data
+    }
   })
 }
 

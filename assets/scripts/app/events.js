@@ -20,7 +20,7 @@ const onCreateMood = function (event) {
 
 // my moods
 const onGetUserMoods = function (event) {
-  console.log('on get user moods fired')
+  console.log('event: on get user moods fired')
   event.preventDefault()
   api.getUserMoods()
         .then(ui.getUserMoodsSuccess)

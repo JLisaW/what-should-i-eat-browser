@@ -5,18 +5,21 @@ const api = require('./api.js')
 const showCustomMoodHB = require('../customMood.handlebars')
 
 const refreshTable = () => {
-  const showMoodHtml = showCustomMoodHB({ moods: store.userTitle })
+  const showMoodHtml = showCustomMoodHB({ moods: moods.reponse })
   $('#content').empty()
   $('#content').append(showMoodHtml)
 }
 
-const createMoodSuccess = (data) => {
-  store.userMoods = data.title
+const createMoodSuccess = (response) => {
+  console.log('create mood success data.title is ', data.moods.title)
   refreshTable()
   $('input').val('')
 }
 
 const createMoodError = (data) => {
+  console.log('create failed this is data.title ', data.mood.title)
+  // debugger
+  console.log('title is ', title)
   userMessage('Something went wrong, please try again.')
 }
 
@@ -33,24 +36,18 @@ const updateMoodFailure = (data) => {
 }
 
 
-const getUserMoodsSuccess = (data) => {
-  if (data.moods.length === 0) {
-    userMessage('You have no custom moods.')
-  }   store.userMoods = data.moods
-      refreshTable()
-}
-
-const showAuthUserSurveysSuccess = (data) => {
-  $('#content').hide()
-  $('form').hide()
-  $('.alert').text('')
+const getUserMoodsSuccess = (response) => {
+  console.log('response is ', response)
+  // if (data.moods.length === 0) {
+  //   userMessage('You have no custom moods.')
+  // }
+    // refreshTable()
 }
 
 
-const getUserMoodsFailure = (userId) => {
-  console.log('get user mood fail title id is ', userlId)
+const getUserMoodsFailure = (response) => {
+  console.log('get user mood response is ', response)
   userMessage('Something went wrong, please try again.')
-  store.userMoods = titleId.moods
 }
 
 const deleteMoodSuccess = () => {
