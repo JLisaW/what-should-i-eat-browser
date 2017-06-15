@@ -6,22 +6,20 @@ const api = require('./api.js')
 const signUpSuccess = (data) => {
   $('#signUpModal').modal('toggle')
   userMessage('You are now signed up, please sign in.')
-  $('#create').hide()
 }
 
 const signUpFailure = (response) => {
   $('#signUpModal').modal('toggle')
   userMessage('Sign up unsuccessful, please try again.')
-  $('#create').hide()
 }
 
 const signInSuccess = (data) => {
   store.user = data.user
   $('#signInModal').modal('toggle')
   userMessage('You are now signed in.')
-  $('#hideSignOut').show()
-  $('#hideChangePW').show()
-  $('#create').show()
+  // $('#hideSignOut').show()
+  // $('#hideChangePW').show()
+  // $('#create').show()
 }
 
 const signInFailure = (response) => {
@@ -30,10 +28,8 @@ const signInFailure = (response) => {
 }
 
 const signOutSuccess = (data) => {
-  store.user = null
   $('#content').empty()
   userMessage('You have signed out.')
-  $('#createTask').hide()
 }
 
 const signOutFailure = (response) => {
