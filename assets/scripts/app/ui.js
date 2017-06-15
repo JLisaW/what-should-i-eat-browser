@@ -5,7 +5,7 @@ const api = require('./api.js')
 const showCustomMoodHB = require('../customMood.handlebars')
 
 // const refreshTable = () => {
-//   const showMoodHtml = showCustomMoodHB({ moods: mood.response })
+//   const showMoodHtml = showCustomMoodHB({ moods: store.response.mood })
 //   $('#content').empty()
 //   $('#content').append(showMoodHtml)
 // }
@@ -18,49 +18,49 @@ const createMoodSuccess = (response) => {
   const showCustomMoodHtml = showCustomMoodHB({mood: response.mood})
   $('#content').show()
   $('#content').html(showCustomMoodHtml)
-  // refreshtable()
 }
 
 const createMoodError = (error) => {
   userMessage('Something went wrong, please try again.')
 }
 
-const updateMoodSuccess = (moodId) => {
+const updateMoodSuccess = (moodTitle) => {
+  console.log('update mood success ', moodTitle)
   api.getUserMoods()
     .then(getUserMoodsSuccess)
     .catch(getUserMoodsFailure)
+const showCustomMoodHtml = showCustomMoodHB({mood: response.mood})
+    $('#content').show()
+    $('#content').html(showCustomMoodHtml)
 }
 
 const updateMoodFailure = (error) => {
   userMessage('Something went wrong, please try again.')
 }
 
-
 const getUserMoodsSuccess = (response) => {
   console.log('response is ', response)
-  const showCustomMoodHtml = showCustomMoodHB({moods: response.moods})
-  console.log('response.mood is ', response.moods)
-  $('#handlebar-target').show()
-  $('#handlebar-target').append(showCustomMoodHtml)
+  const showCustomMoodsHtml = showCustomMoodHB({moods: response.moods})
+  $('#handlebar-target').html(showCustomMoodsHtml)
   // if (data.moods.length === 0) {
   //   userMessage('You have no custom moods.')
   // }
-    // refreshTable()
 }
 
-
-const getUserMoodsFailure = (response) => {
-  console.log('get user mood response is ', response)
+const getUserMoodsFailure = (moodId) => {
+  console.log('get user moodId is ', moodId)
   userMessage('Something went wrong, please try again.')
 }
 
-const deleteMoodSuccess = () => {
+const deleteMoodSuccess = (moodId) => {
+  console.log('delete mood successful')
   api.getUserMoods()
     .then(getUserMoodsSuccess)
     .catch(getUserMoodsFailure)
+  // $('#handlebar-target').empty()
 }
 
-const deleteMoodFailure = (data) => {
+const deleteMoodFailure = (moodId) => {
   userMessage('Something went wrong, please try again.')
 }
 

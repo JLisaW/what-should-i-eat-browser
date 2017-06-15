@@ -29,9 +29,7 @@ const onGetUserMoods = function (event) {
 
 const onDeleteMood = function (event) {
   event.preventDefault()
-  // console.log('on delete mood mood.id is ', mood.id)
-  const moodId = $(this).attr('moods.id')
-  // ui.refreshTable()
+  const moodId = $(this).attr('moodId')
   api.deleteMood(moodId)
     .then(ui.deleteMoodSuccess)
     .catch(ui.deleteMoodFailure)
@@ -41,8 +39,10 @@ const onDeleteMood = function (event) {
 const onUpdateMood = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  // ui.refreshTable()
-  api.updateMood(data)
+  // debugger
+  const moodId = $(this).attr('moodId')
+  // console.log('update mood function moodTitle is', moodTitle)
+  api.updateMood(data.title, moodId)
     .then(ui.updateMoodSuccess)
     .catch(ui.updateMoodFailure)
 }
@@ -50,10 +50,8 @@ const onUpdateMood = function (event) {
 const addHandlers = () => {
   $('#createMood').on('submit', onCreateMood)
   $('#getUserMoods').on('click', onGetUserMoods)
-  // $('#content').on('click', onDeleteMood)
-  // $('#content').on('submit', onUpdateMood)
   $('#handlebar-target').on('click', '.delete-mood-button', onDeleteMood)
-  $('#handlebar-target').on('submit', '.update-mood-button', onUpdateMood)
+  $('#handlebar-target').on('submit', '#update-mood-button', onUpdateMood)
 }
 
 module.exports = {

@@ -2,10 +2,10 @@
 <table id="custom-mood-table" class="table table-striped signed-in-view">
   <thead>
     <tr>
-      <th>Id{{moods.mood.id}}</th>
-      <th>Date Created{{moods.mood.timeFormat}}</th>
-      <th>Mood{{moods.mood.title}}</th>
-      <th>Food Item{{moods.mood.food}}</th>
+      <th>Id</th>
+      <th>Date Created</th>
+      <th>Mood</th>
+      <th>Food Item</th>
     </tr>
   </thead>
 
@@ -15,12 +15,13 @@
 
 {{#each moods as |mood|}}
        <tr>
-         <td class="mood-id">{{mood.id}}</td>
-         <td class="mood-time">{{timeFormat mood.created_at "MMMM Do, YYYY"}}</td>
+         <td class="moodId">{{mood.id}}</td>
+         <td class="mood-time">{{mood.created_at}}</td>
+         <!-- <td class="mood-time">{{timeFormat mood.created_at "MMMM Do, YYYY"}}</td> -->
         <td class="mood-title">{{mood.title}}</td>
-        <td><button moodTitle="{{mood.title}}" type="click" class="btn btn-danger delete-mood-button">Delete</button></td>
+        <td><button moodId="{{mood.id}}" moodTitle="{{mood.title}}" type="click" class="btn btn-danger delete-mood-button">Delete</button></td>
       <td>
-        <form class="update-mood-button" moodTitle="{{mood.title}}">
+        <form id="update-mood-button" moodId="{{mood.id}}" moodTitle="{{mood.title}}">
       <fieldset>
         <input type="text" name="mood[title]" placeholder="Edit Mood">
         <input type="submit" class="btn btn-info" name="submit" value="update">

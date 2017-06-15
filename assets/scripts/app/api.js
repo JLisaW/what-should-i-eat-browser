@@ -14,19 +14,21 @@ const createMood = function (data) {
   })
 }
 
-const updateMood = function (data) {
+const updateMood = function (moodTitle, moodId) {
+  console.log('update moodTitle is ', moodTitle)
+  console.log('update mood moodId is ', moodId)
   return $.ajax({
-    url: config.apiOrigin + '/moods/' + data.mood,
+    url: config.apiOrigin + '/moods/' + moodId,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: data
+    moodTitle
   })
 }
 
 const deleteMood = (moodId) => {
-  console.log('delete mood data is ', moodId)
+  console.log('delete mood moodId is ', moodId)
   return $.ajax({
     url: config.apiOrigin + '/moods/' + moodId,
     method: 'DELETE',
