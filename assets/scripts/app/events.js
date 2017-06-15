@@ -42,7 +42,7 @@ const onUpdateMood = function (event) {
   // debugger
   const moodId = $(this).attr('moodId')
   // console.log('update mood function moodTitle is', moodTitle)
-  api.updateMood(data.title, moodId)
+  api.updateMood(data, moodId)
     .then(ui.updateMoodSuccess)
     .catch(ui.updateMoodFailure)
 }

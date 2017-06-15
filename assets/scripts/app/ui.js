@@ -29,9 +29,9 @@ const updateMoodSuccess = (moodTitle) => {
   api.getUserMoods()
     .then(getUserMoodsSuccess)
     .catch(getUserMoodsFailure)
-const showCustomMoodHtml = showCustomMoodHB({mood: response.mood})
+// const showCustomMoodHtml = showCustomMoodHB({mood: response.mood})
     $('#content').show()
-    $('#content').html(showCustomMoodHtml)
+    // $('#content').html(showCustomMoodHtml)
 }
 
 const updateMoodFailure = (error) => {

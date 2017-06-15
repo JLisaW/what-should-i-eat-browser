@@ -14,16 +14,16 @@ const createMood = function (data) {
   })
 }
 
-const updateMood = function (moodTitle, moodId) {
-  console.log('update moodTitle is ', moodTitle)
-  console.log('update mood moodId is ', moodId)
+const updateMood = function (data, moodId) {
+  console.log('update moodTitle is ', data)
+  console.log('update moodId is ', moodId)
   return $.ajax({
     url: config.apiOrigin + '/moods/' + moodId,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    moodTitle
+    data
   })
 }
 
