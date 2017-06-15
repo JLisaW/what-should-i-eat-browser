@@ -15,7 +15,7 @@ const createMoodSuccess = (response) => {
 }
 
 const createMoodError = (error) => {
-  $('.alert').text('Unable to create moood.')
+  userMessage('Unable to create moood.')
 }
 
 const updateMoodSuccess = (moodTitle) => {
@@ -23,38 +23,30 @@ const updateMoodSuccess = (moodTitle) => {
   api.getUserMoods()
     .then(getUserMoodsSuccess)
     .catch(getUserMoodsFailure)
-// const showCustomMoodHtml = showCustomMoodHB({mood: response.mood})
     $('#content').show()
-    // $('#content').html(showCustomMoodHtml)
 }
 
 const updateMoodFailure = (error) => {
-  $('.alert').text('Unable to edit mood.')
+  userMessage('Unable to edit mood.')
 }
 
 const getUserMoodsSuccess = (response) => {
   console.log('response is ', response)
   const showCustomMoodsHtml = showCustomMoodHB({moods: response.moods})
   $('#handlebar-target').html(showCustomMoodsHtml)
-  console.log('response.moods.length is ', response.moods.length)
   if (response.moods.length === 0) {
-    // $('.alert').show()
-    // $('.alert').text('You have no custom moods.')
-    // userMessage('You have no custom moods.')
-    $('.alert').text('You have no custom moods.')
+    userMessage('You have no custom moods.')
   }
 }
 
 const getUserMoodsFailure = () => {
-  $('.alert').text('Unable to Retrieve Data.')
+  userMessage('Unable to Retrieve Data.')
 }
 
 const deleteMoodSuccess = (moodId) => {
-  console.log('delete mood successful')
   api.getUserMoods()
     .then(getUserMoodsSuccess)
     .catch(getUserMoodsFailure)
-  // $('#handlebar-target').empty()
 }
 
 const deleteMoodFailure = (moodId) => {
