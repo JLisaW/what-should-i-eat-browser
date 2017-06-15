@@ -4,12 +4,6 @@ const store = require('../store.js')
 const api = require('./api.js')
 const showCustomMoodHB = require('../customMood.handlebars')
 
-// const refreshTable = () => {
-//   const showMoodHtml = showCustomMoodHB({ moods: store.response.mood })
-//   $('#content').empty()
-//   $('#content').append(showMoodHtml)
-// }
-
 const createMoodSuccess = (response) => {
   console.log('create mood success response is ', response)
   api.getUserMoods()
@@ -21,7 +15,7 @@ const createMoodSuccess = (response) => {
 }
 
 const createMoodError = (error) => {
-  userMessage('Something went wrong, please try again.')
+  $('.alert').text('Unable to create moood.')
 }
 
 const updateMoodSuccess = (moodTitle) => {
@@ -35,21 +29,24 @@ const updateMoodSuccess = (moodTitle) => {
 }
 
 const updateMoodFailure = (error) => {
-  userMessage('Something went wrong, please try again.')
+  $('.alert').text('Unable to edit mood.')
 }
 
 const getUserMoodsSuccess = (response) => {
   console.log('response is ', response)
   const showCustomMoodsHtml = showCustomMoodHB({moods: response.moods})
   $('#handlebar-target').html(showCustomMoodsHtml)
-  // if (data.moods.length === 0) {
-  //   userMessage('You have no custom moods.')
-  // }
+  console.log('response.moods.length is ', response.moods.length)
+  if (response.moods.length === 0) {
+    // $('.alert').show()
+    // $('.alert').text('You have no custom moods.')
+    // userMessage('You have no custom moods.')
+    $('.alert').text('You have no custom moods.')
+  }
 }
 
-const getUserMoodsFailure = (moodId) => {
-  console.log('get user moodId is ', moodId)
-  userMessage('Something went wrong, please try again.')
+const getUserMoodsFailure = () => {
+  $('.alert').text('Unable to Retrieve Data.')
 }
 
 const deleteMoodSuccess = (moodId) => {
@@ -67,7 +64,7 @@ const deleteMoodFailure = (moodId) => {
 const userMessage = (txt) => {
   const message = $('#message')[0]
   $(message).text(txt)
-  // setTimeout(function () { $('#message').text('') }, 3000)
+  setTimeout(function () { $('#message').text('') }, 3000)
 }
 
 module.exports = {
