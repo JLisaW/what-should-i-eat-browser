@@ -25,7 +25,7 @@ const updateMood = function (data) {
   })
 }
 
-const deleteMood = (id) => {
+const deleteMood = (data) => {
   return $.ajax({
     url: config.apiOrigin + '/moods/' + data.mood.id,
     method: 'DELETE',

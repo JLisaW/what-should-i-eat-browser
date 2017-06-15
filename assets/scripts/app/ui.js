@@ -13,7 +13,7 @@ const showCustomMoodHB = require('../customMood.handlebars')
 const createMoodSuccess = (response) => {
   console.log('create mood success response is ', response)
   // store.moodId = response
-  const showCustomMoodHtml = showCustomMoodHB({mood: response})
+  const showCustomMoodHtml = showCustomMoodHB({mood: response.mood})
   $('#content').show()
   $('#content').html(showCustomMoodHtml)
 }

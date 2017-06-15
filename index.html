@@ -3,38 +3,38 @@
 
 <head>
   <title>Food for Mood</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Do not add `link` tags unless you know what you are doing -->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" type="text/css" href="./assets/styles/index.scss">
 
   <!-- Do not add `script` tags unless you know what you are doing -->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-
 </head>
 
-<body class="container-fluid">
+<body>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
-    <a class="navbar-brand topnav" href="#">What Should I Eat</a>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a data-toggle="modal" data-target="#signUpModal">Sign-Up</a>
-        </li>
-        <li>
-          <a data-toggle="modal" data-target="#signInModal">Sign-In</a>
-        </li>
-        <li>
-          <a type="click" data-toggle="modal" data-target="#signOutModal" id="hideSignOut">Sign Out</a>
-        </li>
-        <li>
-          <a class="change-password" data-toggle="modal" data-target="#changePWModal" id="hideChangePW">Change Password</a>
-        </li>
-      </ul>
-    </div>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">What Should I Eat</a>
+</div>
+</div>
+<div id="navbar">
+        <ul class="nav navbar-nav">
+          <li><button data-toggle="modal" class="btn btn-default navbar-btn" data-target="#signUpModal">Sign-Up</button></li>
+          <li><button data-toggle="modal" class="btn btn-default navbar-btn" data-target="#signInModal">Sign-In</button></li>
+          <li><button data-target="#signOutModal" data-toggle="modal" class="btn btn-default navbar-btn">Sign-Out</button></li>
+          <li><button data-target="#changePWModal" data-toggle="modal" class="btn btn-default navbar-btn" id="changePWModal">Change Password</button></li>
+        </ul>
+  </div>
+      <div class="navbar-header show-buttons">
+          <button id="getUserMoods" class="btn btn-default navbar-btn right">My Custom Moods</button>
+        </div>
     <!-- /.navbar-collapse -->
   </nav>
   <!-- /Fixed navbar -->
@@ -117,8 +117,7 @@
                 </button>
 
               <h4 class="modal-title">You are now signed out</h4
-                <div class="modal-body">
-                </div>
+                <div class="modal-body"></div>
       </div>
       </div>
     </div>
@@ -157,90 +156,45 @@
         </div>
       </form>
 
-  <!-- Page Content -->
-  <!-- <div class="content-section-a">
-
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6">
-          <hr class="section-heading-spacer">
-          <div class="clearfix"></div>
-        </div>
-        <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-        </div>
-      </div>
-
-    </div> -->
     <!-- /.container -->
-
-  </div>
-  <!-- /.content-section-a -->
-    <div class="container">
-
-      <div class="row">
-        <div class="col-lg-8">
-        </div>
-          <ul class="list-inline banner-social-buttons">
-            <li>
-              <br>
-              <button class="btn btn-default btn-lg" id="getUserMoods">
-                <span>My Moods</span>
-              </button>
-              </br>
-            </li>
     <fieldset>
-      <form id="createMood">
+    <form id="createMood">
       <input name="mood[title]" type="text" value="" placeholder="Create Custom Mood">
       <input name="mood[food]" type="text" value="" placeholder="Food Item">
-
       <button type="submit" class="btn btn-info">Create Mood</button>
     </form>
     </fieldset>
-          </ul>
-      </div>
-      <!-- <div class="table">
-        <table>
-          <tr id="row1">
-            <td class="btn btn-sq-lg btn-success" id='0'></td>
-            <td class="btn btn-sq-lg btn-success" id='1'></td>
-            <td class="btn btn-sq-lg btn-success" id='2'></td>
-          </tr>
-          <tr id="row2">
-            <td class="btn btn-sq-lg btn-success" id='3'></td>
-            <td class="btn btn-sq-lg btn-success" id='4'></td>
-            <td class="btn btn-sq-lg btn-success" id='5'></td>
-          </tr>
-          <tr id="row3">
-            <td class="btn btn-sq-lg btn-success" id='6'></td>
-            <td class="btn btn-sq-lg btn-success" id='7'></td>
-            <td class="btn btn-sq-lg btn-success" id='8'></td>
-          </tr>
-        </table>
-      </div> -->
-  <!-- This is where handlebars inserts -->
+  <!-- /.content-section-a -->
+
+      <!-- This is where handlebars inserts -->
+        <div id="content"></div>
+
+
+        <div id="handlebar-target"></div>
+        <footer id="footer">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12">
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
       <div id="content"></div>
-      <table>
-      <tr>
-      <td><button class="btn btn-danger delete-mood-button">Delete</button></td>
-    <td>
-      <form class="update-mood-button">
-    <fieldset>
-      <input type="text"  name="mood[title]"placeholder="Edit Mood">
-      <button type="submit">Edit Mood</button>
-    </fieldset>
-  </form>
-    </td>
-    <td>
-    </tr>
 
-
-  <!-- Footer -->
-  <!-- <footer>
-    <div class="container">
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+      </div>
     </div>
-  </footer> -->
-
-</table>
+  </div>
+</footer>
 </body>
 
 </html>

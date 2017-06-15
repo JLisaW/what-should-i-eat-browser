@@ -2,42 +2,22 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 html {
-  font-family: sans-serif;
-  -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
+  position: relative;
+  min-height: 100%;
 }
+
 body {
-  margin: 0;
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  text-align: center;
 }
-
-.container {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.container-fluid {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.row {
-  margin-right: -15px;
-  margin-left: -15px;
-}
-
-.btn-sq-lg {
-  width: 150px;
-  height: 150px;
-}
-
-.table {
-padding: 20px 20px 9px;
-margin: 100px auto;
-float: right;
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
 }
 
 #signUp .btn.btn-custom {
@@ -50,4 +30,53 @@ form#createMood {
 }
 form.update-mood {
   display: none;
+}
+
+form#getUserMoods {
+  margin-top: 50px;
+  float: right;
+}
+
+div#content {
+  margin-top: 200px;
+}
+form {
+  margin-top: 250px;
+}
+
+body > .container {
+  padding: 60px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.show-buttons {
+  float: right;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+div#handlebar-target {
+  margin-top: 200px;
+}
+form {
+  margin-top: 250px;
+}
+
+form#createMood {
+  margin-top: 50px;
+}
+
+@media (max-width: 769px) {
+  .show-buttons {
+    float: none;
+  }
+}
+
+td.create {
+  width: 50%;
 }
