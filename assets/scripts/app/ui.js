@@ -39,7 +39,7 @@ const updateMoodFailure = (error) => {
 const getUserMoodsSuccess = (response) => {
   console.log('response is ', response)
   const showCustomMoodHtml = showCustomMoodHB({moods: response.moods})
-  console.log('response.mood is ', response.mood)
+  console.log('response.mood is ', response.moods)
   $('#handlebar-target').show()
   $('#handlebar-target').append(showCustomMoodHtml)
   // if (data.moods.length === 0) {
@@ -64,11 +64,11 @@ const deleteMoodFailure = (data) => {
   userMessage('Something went wrong, please try again.')
 }
 
-// const userMessage = (txt) => {
-//   const message = $('#message')[0]
-//   $(message).text(txt)
-//   setTimeout(function () { $('#message').text('') }, 3000)
-// }
+const userMessage = (txt) => {
+  const message = $('#message')[0]
+  $(message).text(txt)
+  // setTimeout(function () { $('#message').text('') }, 3000)
+}
 
 module.exports = {
   getUserMoodsFailure,

@@ -1,19 +1,23 @@
-<!-- {{mood.title}}
-{{mood.food}}
-
-{{title.id}} -->
-
 <html>
 <table id="custom-mood-table" class="table table-striped signed-in-view">
-  {{mood.title}}
-  {{mood.food}}
+  <thead>
+    <tr>
+      <th>Id{{moods.mood.id}}</th>
+      <th>Date Created{{moods.mood.timeFormat}}</th>
+      <th>Mood{{moods.mood.title}}</th>
+      <th>Food Item{{moods.mood.food}}</th>
+    </tr>
+  </thead>
+
+<!-- add button for food -->
 
 <!-- title = mood -->
 
 {{#each moods as |mood|}}
        <tr>
-        <td>{{mood.title}}</td>
-        <td>{{mood.food}}</td>
+         <td class="mood-id">{{mood.id}}</td>
+         <td class="mood-time">{{timeFormat mood.created_at "MMMM Do, YYYY"}}</td>
+        <td class="mood-title">{{mood.title}}</td>
         <td><button moodTitle="{{mood.title}}" type="click" class="btn btn-danger delete-mood-button">Delete</button></td>
       <td>
         <form class="update-mood-button" moodTitle="{{mood.title}}">

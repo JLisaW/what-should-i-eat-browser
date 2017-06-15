@@ -29,10 +29,10 @@ const onGetUserMoods = function (event) {
 
 const onDeleteMood = function (event) {
   event.preventDefault()
-  const moodTitle = $(this).attr('moodTitle')
-  const moodId = $(this).attr('moodId')
+  // console.log('on delete mood mood.id is ', mood.id)
+  const moodId = $(this).attr('moods.id')
   // ui.refreshTable()
-  api.deleteMood(moodTitle, moodId)
+  api.deleteMood(moodId)
     .then(ui.deleteMoodSuccess)
     .catch(ui.deleteMoodFailure)
 }

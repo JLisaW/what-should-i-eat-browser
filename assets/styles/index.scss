@@ -37,9 +37,9 @@ body {
 //   float: right;
 // }
 //
-// div#content {
-//   margin-top: 200px;
-// }
+div#content {
+  margin-top: 50px;
+}
 // form {
 //   margin-top: 250px;
 // }
@@ -51,9 +51,9 @@ body {
 //   margin: 20px 0;
 // }
 //
-// .show-buttons {
-//   float: right;
-// }
+.show-buttons {
+  float: right;
+}
 //
 // .footer > .container {
 //   padding-right: 15px;
@@ -67,9 +67,9 @@ div#handlebar-target {
 //   margin-top: 250px;
 // }
 //
-// form#createMood {
-//   margin-top: 50px;
-// }
+form#createMood {
+  margin-top: 50px;
+}
 //
 // @media (max-width: 769px) {
 //   .show-buttons {
@@ -77,6 +77,10 @@ div#handlebar-target {
 //   }
 // }
 //
-// td.create {
-//   width: 50%;
-// }
+td.create {
+  width: 50%;
+}
+
+.mood-title{
+  font-size: 15px;
+}
