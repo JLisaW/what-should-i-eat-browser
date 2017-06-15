@@ -52,8 +52,8 @@ const addHandlers = () => {
   $('#getUserMoods').on('click', onGetUserMoods)
   // $('#content').on('click', onDeleteMood)
   // $('#content').on('submit', onUpdateMood)
-  $('.delete-mood-button').on('click', onDeleteMood)
-  $('.update-mood-button').on('submit', onUpdateMood)
+  $('#handlebar-target').on('click', '.delete-mood-button', onDeleteMood)
+  $('#handlebar-target').on('submit', '.update-mood-button', onUpdateMood)
 }
 
 module.exports = {

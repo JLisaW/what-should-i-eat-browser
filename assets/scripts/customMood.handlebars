@@ -5,17 +5,15 @@
 
 <html>
 <table id="custom-mood-table" class="table table-striped signed-in-view">
-<table>
   {{mood.title}}
   {{mood.food}}
 
 <!-- title = mood -->
 
-<!-- {{#each moods as |mood|}} -->
+{{#each moods as |mood|}}
        <tr>
-        {{mood.title}}
-        {{mood.food}}
-        <td><button titleId="{{title.id}}" type="click" class="btn btn-info view-mood-button">My Custom Moods</button></td>
+        <td>{{mood.title}}</td>
+        <td>{{mood.food}}</td>
         <td><button moodTitle="{{mood.title}}" type="click" class="btn btn-danger delete-mood-button">Delete</button></td>
       <td>
         <form class="update-mood-button" moodTitle="{{mood.title}}">
@@ -26,6 +24,6 @@
     </form>
       </td>
       </tr>
-  <!-- {{/each}} -->
+  {{/each}}
 </table>
 </html>
