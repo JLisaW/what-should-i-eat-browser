@@ -1,16 +1,16 @@
-<html>
+<!-- <html> -->
 <table id="custom-mood-table" class="table table-striped signed-in-view">
 
 <!-- title = mood -->
 
 {{#each titles as |title|}}
       <tr>
-        <td>{{title.id}}</td>
+        <td>{{mood.title}}</td>
         <td>{{title.food}}</td>
-        <td><button titleId="{{title.id}}" type="click" class="btn btn-info view-mood-button">My Custom Moods</button></td>
-        <td><button titleId="{{title.id}}" type="click" class="btn btn-danger delete-mood-button">Delete</button></td>
+        <!-- <td><button titleId="{{title.id}}" type="click" class="btn btn-info view-mood-button">My Custom Moods</button></td> -->
+        <td><button moodTitle="{{mood.title}}" type="click" class="btn btn-danger delete-mood-button">Delete</button></td>
       <td>
-        <form class="update-mood-button" titleId="{{title.id}}">
+        <form class="update-mood-button" moodTitle="{{mood.title}}">
       <fieldset>
         <input type="text" name="mood[title]" placeholder="Edit Mood">
         <input type="submit" class="btn btn-info" name="submit" value="">
@@ -18,7 +18,7 @@
     </form>
       </td>
       <td>
-        <form class="add-mood" titleId="{{title.id}}">
+        <form class="add-mood" moodTitle="{{mood.title}}">
       <fieldset>
         <input type="text" name="mood[title]" placeholder="Add Custom Mood">
         <input type="submit" class="btn btn-success" name="submit" value="">
@@ -28,4 +28,4 @@
       </tr>
   {{/each}}
 </table>
-</html>
+<!-- </html> -->

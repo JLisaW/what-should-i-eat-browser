@@ -16,7 +16,7 @@ const createMood = function (data) {
 
 const updateMood = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/moods/' + moodId,
+    url: config.apiOrigin + '/moods/' + data.mood.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -25,9 +25,9 @@ const updateMood = function (data) {
   })
 }
 
-const deleteMood = (moodId) => {
+const deleteMood = (id) => {
   return $.ajax({
-    url: config.apiOrigin + '/moods/' + moodId,
+    url: config.apiOrigin + '/moods/' + data.mood.id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token

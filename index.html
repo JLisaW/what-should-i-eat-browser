@@ -198,7 +198,7 @@
     </fieldset>
           </ul>
       </div>
-      <div class="table">
+      <!-- <div class="table">
         <table>
           <tr id="row1">
             <td class="btn btn-sq-lg btn-success" id='0'></td>
@@ -216,19 +216,31 @@
             <td class="btn btn-sq-lg btn-success" id='8'></td>
           </tr>
         </table>
-      </div>
+      </div> -->
   <!-- This is where handlebars inserts -->
       <div id="content"></div>
+      <table>
+      <tr>
+      <td><button class="btn btn-danger delete-mood-button">Delete</button></td>
+    <td>
+      <form class="update-mood-button">
+    <fieldset>
+      <input type="text"  name="mood[title]"placeholder="Edit Mood">
+      <button type="submit">Edit Mood</button>
+    </fieldset>
+  </form>
+    </td>
+    <td>
+    </tr>
 
-    </div
 
   <!-- Footer -->
-  <footer>
+  <!-- <footer>
     <div class="container">
     </div>
-  </footer>
+  </footer> -->
 
-
+</table>
 </body>
 
 </html>
