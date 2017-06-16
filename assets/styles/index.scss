@@ -27,10 +27,6 @@ body {
    margin-top: 50px;
  }
 
-div#content {
-  margin-top: 50px;
-}
-
 .show-buttons {
   float: right;
 }
@@ -38,7 +34,33 @@ div#content {
 div#handlebar-target {
   margin-top: 50px;
 }
+form {
+  margin-top: 10px;
+}
+
+#sign-out {
+  display: none;
+}
+
+#changePW {
+  display: none;
+}
+
+#getUserMoods {
+  display: none;
+}
 
 form#createMood {
   margin-top: 50px;
+}
+
+div#content {
+  margin-top: 50px;
+  display:none
+}
+
+@media (max-width: 769px) {
+  .show-buttons {
+    float: none;
+  }
 }
