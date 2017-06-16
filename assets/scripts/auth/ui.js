@@ -36,6 +36,8 @@ const signInSuccess = (data) => {
   $('#changePW').show()
   $('#content').show()
   $('#getUserMoods').show()
+  $('#content').show()
+  resetFormFields()
 
 }
 
@@ -67,12 +69,14 @@ const signOutFailure = (response) => {
 const changePasswordSuccess = (data) => {
   $('#changePWModal').modal('toggle')
   userMessage('Your password has been changed.')
+  $('#content').show()
   resetFormFields()
 }
 
 const changePasswordFailure = (response) => {
   $('#changePWModal').modal('toggle')
   userMessage('Unsuccessful password change.')
+  $('#content').show()
   resetFormFields()
 }
 

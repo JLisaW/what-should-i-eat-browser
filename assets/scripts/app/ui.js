@@ -9,13 +9,14 @@ const createMoodSuccess = (response) => {
     .then(getUserMoodsSuccess)
     .catch(getUserMoodsFailure)
   const showCustomMoodHtml = showCustomMoodHB({mood: response.mood})
-  $('#content').show()
   $('#content').html(showCustomMoodHtml)
   $('form#createMood').trigger('reset')
+  $('#content').show()
 }
 
 const createMoodError = (error) => {
   userMessage('Unable to create moood.')
+  $('#content').show()
   $('form#createMood').trigger('reset')
 }
 
@@ -25,12 +26,14 @@ const updateMoodSuccess = (moodTitle) => {
     .catch(getUserMoodsFailure)
     $('form#createMood').trigger('reset')
     $('form#update-mood-button').trigger('reset')
+    $('#content').show()
 }
 
 const updateMoodFailure = (error) => {
   userMessage('Unable to edit mood.')
   $('form#createMood').trigger('reset')
   $('form#update-mood-button').trigger('reset')
+  $('#content').show()
 }
 
 
@@ -40,12 +43,14 @@ const getUserMoodsSuccess = (response) => {
   if (response.moods.length === 0) {
     userMessage('You have no custom moods.')
     $('form#createMood').trigger('reset')
+    $('#content').show()
   }
 }
 
 const getUserMoodsFailure = () => {
   userMessage('Unable to Retrieve Data.')
   $('form#createMood').trigger('reset')
+  $('#content').show()
 }
 
 const deleteMoodSuccess = (moodId) => {
@@ -53,11 +58,13 @@ const deleteMoodSuccess = (moodId) => {
     .then(getUserMoodsSuccess)
     .catch(getUserMoodsFailure)
     $('form#createMood').trigger('reset')
+    $('#content').show()
 }
 
 const deleteMoodFailure = (moodId) => {
   userMessage('Something went wrong, please try again.')
   $('form#createMood').trigger('reset')
+  $('#content').show()
 }
 
 const userMessage = (txt) => {
