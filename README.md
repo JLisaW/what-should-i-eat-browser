@@ -1,5 +1,9 @@
 Food for Mood
 
+![alt text](https://user-images.githubusercontent.com/26361086/27227321-090ef992-5271-11e7-802e-dfdfff9da8cd.png)
+
+![alt text](https://user-images.githubusercontent.com/26361086/27227470-96c4b4de-5271-11e7-85ef-46b0feeb50c8.png)
+
 FRONT END DEPLOYED - https://jlisaw.github.io/what-should-i-eat-browser/
 
 FRONT END REPO - https://github.com/JLisaW/what-should-i-eat-browser
