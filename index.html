@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Food for Mood</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" type="text/css" href="./assets/styles/index.scss">
+
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+  <!-- Navigation -->
+  <body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">What Should I Eat</a>
+</div>
+</div>
+<p id="message"></p>
+
+<div id="navbar" class="active">
+        <ul class="nav navbar-nav">
+          <li><button data-toggle="modal" class="btn btn-default navbar-btn" data-target="#signUpModal">Sign-Up</button></li>
+          <li><button data-toggle="modal" class="btn btn-default navbar-btn" data-target="#signInModal">Sign-In</button></li>
+          <li><button id="sign-out" class="btn btn-default navbar-btn">Sign-Out</button></li>
+          <li><button id="changePW" data-toggle="modal" class="btn btn-default navbar-btn" data-target="#changePWModal">Change Password</button></li>
+        </ul>
+  </div>
+      <div class="navbar-header show-buttons">
+          <button id="getUserMoods" class="btn btn-default navbar-btn right">My Custom Moods</button>
+        </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+  <!-- /Fixed navbar -->
+
+
+  <form id="sign-up">
+    <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myForgetModalLabel" aria-hidden="true">
+
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">×</span>
+					<span class="sr-only">Close</span>
+				    </button>
+
+            <h4 class="modal-title">Create Account</h4>
+          </div>
+
+          <div class="modal-body">
+            <input type="text" name="credentials[email]" class="form-control" placeholder="email">
+          </div>
+
+          <div class="modal-body">
+            <input type="password" name="credentials[password]" class="form-control" placeholder="password">
+          </div>
+
+          <div class="modal-body">
+            <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="password_confirmation">
+          </div>
+
+          <div class="modal-footer">
+            <input type="submit" id="btn-signUp" value="Sign up" class="btn btn-custom">
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <form id="sign-in">
+    <div class="modal fade" id="signInModal"  tabindex="-1" role="dialog" aria-labelledby="myForgetModalLabel" aria-hidden="true">
+
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+
+          <div class="modal-header">
+
+            <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">×</span>
+      					<span class="sr-only">Close</span>
+      				</button>
+
+            <h4 class="modal-title">Sign In</h4>
+
+          <div class="modal-body">
+            <input type="text" name="credentials[email]" class="form-control" placeholder="email">
+          </div>
+        </div>
+
+        <div class="modal-body">
+          <input type="password" name="credentials[password]" class="form-control" placeholder="password">
+        </div>
+
+        <div class="modal-footer">
+          <input type="submit" id="btn-signIn" value="Sign In" class="btn btn-custom">
+        </div>
+    </div>
+    </div>
+  </div>
+  </form>
+
+    <form id="change-password">
+
+        <div class="modal fade" id="changePWModal" tabindex="-1" role="dialog" aria-labelledby="myForgetModalLabel" aria-hidden="true">
+
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+
+              <div class="modal-header">
+
+              <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">×</span>
+    					<span class="sr-only">Close</span>
+              </button>
+
+                <h4 class="modal-title">Change Password</h4>
+              </div>
+
+              <div class="modal-body">
+                <input type="password" name="passwords[old]" class="form-control" placeholder="old password">
+              </div>
+
+              <div class="modal-body">
+                <input type="password" name="passwords[new]" class="form-control" placeholder="new password">
+              </div>
+
+              <div class="modal-footer">
+                <input type="submit" id="btn-changePW" value="Change Password" class="btn btn-custom">
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+    <!-- /.container -->
+        <div id="content"></div>
+
+    <fieldset>
+    <form id="createMood">
+      <input name="mood[title]" type="text" value="" placeholder="Create Custom Mood">
+      <input name="mood[food]" type="text" value="" placeholder="Food Item">
+      <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span>Create Mood</button>
+    </form>
+    </fieldset>
+
+    <!-- <p id="message"></p> -->
+
+<div id="handlebar-target"></div>
+      <!-- This is where handlebars inserts -->
+
+        <footer id="footer">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12">
+              </div>
+            </div>
+          </div>
+        </footer>
+</body>
+
+</html>
