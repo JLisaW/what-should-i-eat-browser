@@ -20,14 +20,6 @@ body {
   background-color: #f5f5f5;
 }
 
-//
-// form#createMood {
-//   margin-top: 50px;
-// }
-// form.update-mood {
-//   display: none;
-// }
-
 #message {
    text-align: center;
    color: #036;
@@ -38,13 +30,6 @@ form#getUserMoods {
   margin-top: 50px;
   float: right;
 }
-
-// div#content {
-//   margin-top: 50px;
-// }
-// form {
-//   margin-top: 250px;
-// }
 
 body > .container {
   padding: 60px 15px 0;
@@ -66,11 +51,28 @@ div#handlebar-target {
   margin-top: 50px;
 }
 form {
-  margin-top: 50px;
+  margin-top: 10px;
+}
+
+#sign-out {
+  display: none;
+}
+
+#changePW {
+  display: none;
+}
+
+#getUserMoods {
+  display: none;
 }
 
 form#createMood {
   margin-top: 50px;
+}
+
+div#content {
+  margin-top: 50px;
+  display:none
 }
 
 @media (max-width: 769px) {
@@ -78,11 +80,3 @@ form#createMood {
     float: none;
   }
 }
-
-// td.create {
-//   width: 50%;
-// }
-
-// .mood-title{
-//   font-size: 15px;
-// }

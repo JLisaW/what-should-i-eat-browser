@@ -4,12 +4,6 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api.js')
 const ui = require('./ui.js')
 
-// const onRevealAddMood = function (event) {
-//   $('form#change-password').hide()
-//   $('form#createMood').toggle()
-//   $('#content').text('')
-// }
-
 const onCreateMood = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
@@ -20,7 +14,6 @@ const onCreateMood = function (event) {
 
 // my moods
 const onGetUserMoods = function (event) {
-  console.log('event: on get user moods fired')
   event.preventDefault()
   api.getUserMoods()
         .then(ui.getUserMoodsSuccess)
@@ -39,9 +32,7 @@ const onDeleteMood = function (event) {
 const onUpdateMood = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  // debugger
   const moodId = $(this).attr('moodId')
-  // console.log('update mood function moodTitle is', moodTitle)
   api.updateMood(data, moodId)
     .then(ui.updateMoodSuccess)
     .catch(ui.updateMoodFailure)

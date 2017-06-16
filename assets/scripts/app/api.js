@@ -15,8 +15,6 @@ const createMood = function (data) {
 }
 
 const updateMood = function (data, moodId) {
-  console.log('update moodTitle is ', data)
-  console.log('update moodId is ', moodId)
   return $.ajax({
     url: config.apiOrigin + '/moods/' + moodId,
     method: 'PATCH',
@@ -28,7 +26,6 @@ const updateMood = function (data, moodId) {
 }
 
 const deleteMood = (moodId) => {
-  console.log('delete mood moodId is ', moodId)
   return $.ajax({
     url: config.apiOrigin + '/moods/' + moodId,
     method: 'DELETE',
