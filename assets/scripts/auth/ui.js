@@ -72,14 +72,14 @@ const changePasswordSuccess = (data) => {
 
 const changePasswordFailure = (response) => {
   $('#changePWModal').modal('toggle')
-  userMessage('Unsuccessful password change.  Did you sign in?')
+  userMessage('Unsuccessful password change.')
   resetFormFields()
 }
 
 const userMessage = (txt) => {
   const message = $('#message')[0]
   $(message).text(txt)
-  setTimeout(function () { $('#message').text('') }, 4000)
+  setTimeout(function () { $('#message').text('') }, 5000)
 }
 
 module.exports = {
