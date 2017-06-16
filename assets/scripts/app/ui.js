@@ -33,6 +33,7 @@ const updateMoodFailure = (error) => {
   $('form#update-mood-button').trigger('reset')
 }
 
+
 const getUserMoodsSuccess = (response) => {
   const showCustomMoodsHtml = showCustomMoodHB({moods: response.moods})
   $('#handlebar-target').html(showCustomMoodsHtml)

@@ -20,7 +20,7 @@
          <!-- <td class="mood-time">{{timeFormat mood.created_at "MMMM Do, YYYY"}}</td> -->
         <td class="mood-title" >{{mood.title}}</td>
         <td class="mood-food">{{mood.food}}</td>
-        <td><button moodId="{{mood.id}}" moodTitle="{{mood.title}}" type="click" class="btn btn-danger delete-mood-button">Delete</button></td>
+        <td><button moodId="{{mood.id}}" moodTitle="{{mood.title}}" type="click" class="btn btn-danger btn delete-mood-button">Delete<span class="glyphicon glyphicon-trash"></span></button></td>
       <td>
         <form id="update-mood-button" moodId="{{mood.id}}" moodTitle="{{mood.title}}">
       <fieldset>

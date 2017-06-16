@@ -12,6 +12,7 @@ const onCreateMood = function (event) {
       .catch(ui.createMoodError)
 }
 
+
 // my moods
 const onGetUserMoods = function (event) {
   event.preventDefault()
