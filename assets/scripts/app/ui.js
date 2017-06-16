@@ -12,9 +12,9 @@ const createMoodSuccess = (response) => {
   $('#content').html(showCustomMoodHtml)
   $('form#createMood').trigger('reset')
   $('#content').show()
-  if (mood.length === 0) {
-    userMessage('Please enter a mood.')
-  }
+  // if (mood.length === 0) {
+  //   userMessage('Please enter a mood.')
+  // }
 }
 
 const createMoodError = (error) => {
