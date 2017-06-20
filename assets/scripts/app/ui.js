@@ -3,6 +3,7 @@
 const store = require('../store.js')
 const api = require('./api.js')
 const showCustomMoodHB = require('../customMood.handlebars')
+const showCustomFoodHB = require('../customFood.handlebars')
 
 const createMoodSuccess = (response) => {
   api.getUserMoods()
@@ -16,6 +17,22 @@ const createMoodSuccess = (response) => {
 
 const createMoodError = (error) => {
   userMessage('Unable to create mood.')
+  $('#content').show()
+  $('form#createMood').trigger('reset')
+}
+
+const addFoodSuccess = (response) => {
+  api.getUserMoods()
+    .then(getUserMoodsSuccess)
+    .catch(getUserMoodsFailure)
+  const showCustomMoodHtml = showCustomMoodHB({mood: response.mood})
+  $('#content').html(showCustomMoodHtml)
+  $('form#createMood').trigger('reset')
+  $('#content').show()
+}
+
+const addFoodError = (error) => {
+  userMessage('Unable to add food.')
   $('#content').show()
   $('form#createMood').trigger('reset')
 }
@@ -67,10 +84,28 @@ const deleteMoodFailure = (moodId) => {
   $('#content').show()
 }
 
+const viewFoodListSuccess = (foodId) => {
+  const showCustomFoodsHtml = showCustomFoodHB({foods: response.foods})
+  console.log('view food list success response.foods is ', response.foods)
+  $('#handlebar-target').html(showCustomFoodsHtml)
+  // api.viewFoodList()
+  //   .then(viewFoodListSuccess)
+  //   .catch(viewFoodListFailure)
+    $('form#createMood').trigger('reset')
+    $('#content').show()
+}
+
+const viewFoodListFailure = (foodId) => {
+  console.log('view food list success response.foods is ', response.foods)
+  userMessage('Something went wrong, please try again.')
+  $('form#createMood').trigger('reset')
+  $('#content').show()
+}
+
 const userMessage = (txt) => {
   const message = $('#message')[0]
   $(message).text(txt)
-  setTimeout(function () { $('#message').text('') }, 3000)
+  setTimeout(function () { $('#message').text('') }, 2000)
 }
 
 module.exports = {
@@ -81,5 +116,7 @@ module.exports = {
   createMoodError,
   createMoodSuccess,
   deleteMoodSuccess,
-  deleteMoodFailure
+  deleteMoodFailure,
+  addFoodSuccess,
+  addFoodError
 }

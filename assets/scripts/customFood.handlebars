@@ -1,0 +1,27 @@
+<html>
+<table id="custom-food-table" class="table table-striped signed-in-view">
+  <thead>
+    <tr>
+
+      <th><h4>Mood</h4></th>
+      <th><h4>Food Item</h4></th>
+    </tr>
+  </thead>
+
+{{#each foods as |food|}}
+       <tr>
+        <td class="food-name" >{{food.name}}</td>
+        <td class="mood-food">{{mood.food}}</td>
+        <td><button foodId="{{food.id}}" foodName="{{food.name}}" type="click" class="btn btn-danger btn delete-mood-button">Delete<span class="glyphicon glyphicon-trash"></span></button></td>
+      <td>
+        <form id="update-food-button" foodId="{{food.id}}" foodName="{{food.name}}">
+      <fieldset>
+        <input type="text" name="food[name]" placeholder="Edit Food List">
+        <input type="submit" class="btn btn-info" name="submit" value="update">
+      </fieldset>
+    </form>
+      </td>
+      </tr>
+  {{/each}}
+</table>
+</html>
