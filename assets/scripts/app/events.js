@@ -12,14 +12,6 @@ const onCreateMood = function (event) {
       .catch(ui.createMoodError)
 }
 
-const onAddFood = function (event) {
-  event.preventDefault()
-  const data = getFormFields(this)
-  api.addFood(data)
-      .then(ui.addFoodSuccess)
-      .catch(ui.addFoodError)
-}
-
 // my moods
 const onGetUserMoods = function (event) {
   event.preventDefault()
@@ -54,12 +46,26 @@ const onViewFoodList = function (event) {
     .catch(ui.viewFoodListFailure)
 }
 
+const onAddFood = function (event) {
+  console.log('on add food function fired')
+  event.preventDefault()
+  const data = getFormFields(this)
+  console.log('on add food this is data ', data)
+  const moodId = $(this).attr('moodId')
+  console.log('on add food this is moodId')
+  api.addFood(data, moodId)
+      .then(ui.addFoodSuccess)
+      .catch(ui.addFoodError)
+}
+
+
 const addHandlers = () => {
   $('#createMood').on('submit', onCreateMood)
   $('#getUserMoods').on('click', onGetUserMoods)
   $('#handlebar-target').on('click', '.delete-mood-button', onDeleteMood)
   $('#handlebar-target').on('submit', '#update-mood-button', onUpdateMood)
   $('#handlebar-target').on('click', '.view-food-list-button', onViewFoodList)
+  $('#handlebar-target').on('submit', '#add-food-button', onAddFood)
 }
 
 module.exports = {

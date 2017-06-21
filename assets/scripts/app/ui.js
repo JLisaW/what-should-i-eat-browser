@@ -84,11 +84,12 @@ const viewFoodListFailure = () => {
 }
 
 const addFoodSuccess = (response) => {
-  const showCustomFoodHtml = showCustomFoodHB({foods: response.foods})
   api.viewFoodList()
     .then(viewFoodListsSuccess)
     .catch(viewFoodListFailure)
+  const showCustomFoodHtml = showCustomFoodHB({food: response.food})
   $('#content').html(showCustomFoodHtml)
+  $('#handlebar-target').html(showCustomFoodsHtml)
   // $('form#createMood').trigger('reset')
   $('#content').show()
 }

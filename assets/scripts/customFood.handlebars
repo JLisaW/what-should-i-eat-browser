@@ -3,24 +3,29 @@
   <thead>
     <tr>
 
-      <th><h4>Mood</h4></th>
-      <th><h4>Food</h4></th>
+      <th><h4>{{mood.title}}</h4></th>
+      <th><h4>{{name.food}}</h4></th>
+      <th><h4>{{food.mood}}</h4></th>
     </tr>
   </thead>
 
 {{#each foods as |food|}}
        <tr>
+         <td class="mood-title">{{mood.title}}</td>
         <td class="food-name" >{{food.name}}</td>
-        <td class="mood-food">{{food.mood}}</td>
+        <td class="food-mood">{{food.mood}}</td>
+
         <td><button foodId="{{food.id}}" foodName="{{food.name}}" type="click" class="btn btn-danger btn delete-food-button">Delete<span class="glyphicon glyphicon-trash"></span></button></td>
+
       <td>
-        <form id="update-food-button" foodId="{{food.id}}" foodName="{{food.name}}">
+        <form id="add-food-button" foodId="{{food.id}}" foodName="{{food.name}}" moodId="{{mood.id}}">
       <fieldset>
-        <input type="text" name="food[name]" placeholder="Edit Food List">
+        <input type="text" name="food[name]" placeholder="Add Food">
         <input type="submit" class="btn btn-info" name="submit" value="update">
       </fieldset>
     </form>
       </td>
+
       </tr>
   {{/each}}
 </table>

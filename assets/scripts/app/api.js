@@ -14,18 +14,6 @@ const createMood = function (data) {
   })
 }
 
-const addFood = function (data) {
-  console.log('add food function')
-  return $.ajax({
-    url: config.apiOrigin + '/moods',
-    method: 'POST',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-    data
-  })
-}
-
 const updateMood = function (data, moodId) {
   return $.ajax({
     url: config.apiOrigin + '/moods/' + moodId,
@@ -68,10 +56,23 @@ const viewFoodList = () => {
   })
 }
 
+const addFood = function (data) {
+  console.log('add food function')
+  return $.ajax({
+    url: config.apiOrigin + '/foods',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   createMood,
   updateMood,
   deleteMood,
   getUserMoods,
-  viewFoodList
+  viewFoodList,
+  addFood
 }
