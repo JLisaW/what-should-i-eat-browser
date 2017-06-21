@@ -49,7 +49,6 @@ const onUpdateMood = function (event) {
 const onViewFoodList = function (event) {
   console.log('on view food list function')
   event.preventDefault()
-  // const foodId = $(this).attr('foodId')
   api.viewFoodList()
     .then(ui.viewFoodListSuccess)
     .catch(ui.viewFoodListFailure)

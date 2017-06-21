@@ -57,14 +57,14 @@ const getUserMoods = () => {
   })
 }
 
-const viewFoodList = (moodId) => {
-  console.log('view food list moodId is ', moodId);
+const viewFoodList = () => {
+  console.log('view food list api')
   return $.ajax({
-    url: config.apiOrigin + '/moods/' + moodId,
+    url: config.apiOrigin + '/foods/',
     method: 'GET',
-    // headers: {
-    //   Authorization: 'Token token=' + store.user.token
-    // }
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 

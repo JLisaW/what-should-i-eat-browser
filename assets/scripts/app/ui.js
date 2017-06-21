@@ -22,9 +22,9 @@ const createMoodError = (error) => {
 }
 
 const addFoodSuccess = (response) => {
-  api.getUserMoods()
-    .then(getUserMoodsSuccess)
-    .catch(getUserMoodsFailure)
+  api.viewFoodList()
+    .then(viewFoodListsSuccess)
+    .catch(viewFoodListFailure)
   const showCustomMoodHtml = showCustomMoodHB({mood: response.mood})
   $('#content').html(showCustomMoodHtml)
   $('form#createMood').trigger('reset')
@@ -84,19 +84,16 @@ const deleteMoodFailure = (moodId) => {
   $('#content').show()
 }
 
-const viewFoodListSuccess = (foodId) => {
-  const showCustomFoodsHtml = showCustomFoodHB({foods: response.foods})
-  console.log('view food list success response.foods is ', response.foods)
+const viewFoodListSuccess = (response) => {
+  const showCustomFoodsHtml = showCustomFoodHB({foods: response.name})
+  console.log('view food list success id.foods is ', response.name)
   $('#handlebar-target').html(showCustomFoodsHtml)
-  // api.viewFoodList()
-  //   .then(viewFoodListSuccess)
-  //   .catch(viewFoodListFailure)
     $('form#createMood').trigger('reset')
     $('#content').show()
 }
 
-const viewFoodListFailure = (foodId) => {
-  console.log('view food list success response.foods is ', response.foods)
+const viewFoodListFailure = () => {
+  console.log('view food list failure response.name is ', response.name)
   userMessage('Something went wrong, please try again.')
   $('form#createMood').trigger('reset')
   $('#content').show()
@@ -118,5 +115,7 @@ module.exports = {
   deleteMoodSuccess,
   deleteMoodFailure,
   addFoodSuccess,
-  addFoodError
+  addFoodError,
+  viewFoodListSuccess,
+  viewFoodListFailure
 }
