@@ -21,22 +21,6 @@ const createMoodError = (error) => {
   $('form#createMood').trigger('reset')
 }
 
-const addFoodSuccess = (response) => {
-  api.viewFoodList()
-    .then(viewFoodListsSuccess)
-    .catch(viewFoodListFailure)
-  const showCustomMoodHtml = showCustomMoodHB({mood: response.mood})
-  $('#content').html(showCustomMoodHtml)
-  $('form#createMood').trigger('reset')
-  $('#content').show()
-}
-
-const addFoodError = (error) => {
-  userMessage('Unable to add food.')
-  $('#content').show()
-  $('form#createMood').trigger('reset')
-}
-
 const updateMoodSuccess = (moodTitle) => {
   api.getUserMoods()
     .then(getUserMoodsSuccess)
@@ -85,18 +69,34 @@ const deleteMoodFailure = (moodId) => {
 }
 
 const viewFoodListSuccess = (response) => {
-  const showCustomFoodsHtml = showCustomFoodHB({foods: response.name})
-  console.log('view food list success id.foods is ', response.name)
+  const showCustomFoodsHtml = showCustomFoodHB({foods: response.foods})
+  console.log('view food list success response.foods is ', response.foods)
   $('#handlebar-target').html(showCustomFoodsHtml)
     $('form#createMood').trigger('reset')
     $('#content').show()
 }
 
 const viewFoodListFailure = () => {
-  console.log('view food list failure response.name is ', response.name)
+  console.log('view food list failure response.foods is ', response.foods)
   userMessage('Something went wrong, please try again.')
   $('form#createMood').trigger('reset')
   $('#content').show()
+}
+
+const addFoodSuccess = (response) => {
+  const showCustomFoodHtml = showCustomFoodHB({foods: response.foods})
+  api.viewFoodList()
+    .then(viewFoodListsSuccess)
+    .catch(viewFoodListFailure)
+  $('#content').html(showCustomFoodHtml)
+  // $('form#createMood').trigger('reset')
+  $('#content').show()
+}
+
+const addFoodError = (error) => {
+  userMessage('Unable to add food.')
+  $('#content').show()
+  // $('form#createMood').trigger('reset')
 }
 
 const userMessage = (txt) => {
