@@ -8,6 +8,7 @@ const createMoodSuccess = (response) => {
   api.getUserMoods()
     .then(getUserMoodsSuccess)
     .catch(getUserMoodsFailure)
+  console.log('response.mood is ', response.mood);
   const showCustomMoodHtml = showCustomMoodHB({mood: response.mood})
   $('#content').html(showCustomMoodHtml)
   $('form#createMood').trigger('reset')
