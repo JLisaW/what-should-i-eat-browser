@@ -20,7 +20,7 @@ const createMoodError = (error) => {
   $('form#createMood').trigger('reset')
 }
 
-const updateMoodSuccess = (moodTitle) => {
+const updateMoodSuccess = (moodEmotion) => {
   api.getUserMoods()
     .then(getUserMoodsSuccess)
     .catch(getUserMoodsFailure)
