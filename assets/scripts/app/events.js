@@ -47,13 +47,14 @@ const onViewFoodList = function (event) {
     .catch(ui.viewFoodListFailure)
 }
 
+// POST
 const onAddFood = function (event) {
   console.log('on add food function fired')
   event.preventDefault()
   const data = getFormFields(this)
   console.log('on add food this is data ', data)
   const moodId = $(this).attr('moodId')
-  console.log('on add food this is moodId')
+  console.log('on add food this is moodId ', moodId)
   api.addFood(data, moodId)
       .then(ui.addFoodSuccess)
       .catch(ui.addFoodError)

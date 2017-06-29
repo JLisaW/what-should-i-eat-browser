@@ -56,10 +56,10 @@ const viewFoodList = () => {
   })
 }
 
-const addFood = function (data) {
+const addFood = function (moodId, data) {
   console.log('add food function')
   return $.ajax({
-    url: config.apiOrigin + '/foods',
+    url: config.apiOrigin + '/foods/',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
