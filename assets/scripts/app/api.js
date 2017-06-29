@@ -45,9 +45,34 @@ const getUserMoods = () => {
   })
 }
 
+const viewFoodList = () => {
+  console.log('view food list api')
+  return $.ajax({
+    url: config.apiOrigin + '/foods/',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const addFood = function (data) {
+  console.log('add food function')
+  return $.ajax({
+    url: config.apiOrigin + '/foods',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   createMood,
   updateMood,
   deleteMood,
-  getUserMoods
+  getUserMoods,
+  viewFoodList,
+  addFood
 }

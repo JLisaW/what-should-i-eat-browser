@@ -67,6 +67,37 @@ const deleteMoodFailure = (moodId) => {
   $('form#createMood').trigger('reset')
   $('#content').show()
 }
+const viewFoodListSuccess = (response) => {
+  const showCustomFoodsHtml = showCustomFoodHB({foods: response.foods})
+  console.log('view food list success response.foods is ', response.foods)
+  $('#handlebar-target').html(showCustomFoodsHtml)
+    $('form#createMood').trigger('reset')
+    $('#content').show()
+}
+
+const viewFoodListFailure = () => {
+  console.log('view food list failure response.foods is ', response.foods)
+  userMessage('Something went wrong, please try again.')
+  $('form#createMood').trigger('reset')
+  $('#content').show()
+}
+
+const addFoodSuccess = (response) => {
+  api.viewFoodList()
+    .then(viewFoodListsSuccess)
+    .catch(viewFoodListFailure)
+  const showCustomFoodHtml = showCustomFoodHB({food: response.food})
+  $('#content').html(showCustomFoodHtml)
+  $('#handlebar-target').html(showCustomFoodsHtml)
+  // $('form#createMood').trigger('reset')
+  $('#content').show()
+}
+
+const addFoodError = (error) => {
+  userMessage('Unable to add food.')
+  $('#content').show()
+  // $('form#createMood').trigger('reset')
+}
 
 const userMessage = (txt) => {
   const message = $('#message')[0]

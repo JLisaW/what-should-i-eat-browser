@@ -1,0 +1,29 @@
+<html>
+<table id="custom-food-table" class="table table-striped signed-in-view">
+  <thead>
+    <tr>
+
+      <th><h4>{{mood.emotion}}</h4></th>
+      <th><h4>{{food_item.food}}</h4></th>
+      <th><h4>{{food.emotion}}</h4></th>
+    </tr>
+  </thead>
+
+{{#each foods as |food|}}
+       <tr>
+        <td class="mood-emotion">{{mood.emotion}}</td>
+        <td class="food-food_item" >{{food.food_item}}</td>
+        <td class="food-emotion">{{food.emotion}}</td>
+      <td>
+        <form id="add-food-button" moodId="{{mood.id}}">
+      <fieldset>
+        <input type="text" name="food[food_item]" placeholder="Add Food">
+        <input type="submit" class="btn btn-success" name="submit" value="Add Food">
+      </fieldset>
+    </form>
+      </td>
+      <td><button foodId="{{food.id}}" foodFoodItem="{{food.food_item}}" type="click" class="btn btn-danger btn delete-food-button">Delete<span class="glyphicon glyphicon-trash"></span></button></td>
+      </tr>
+  {{/each}}
+</table>
+</html>
