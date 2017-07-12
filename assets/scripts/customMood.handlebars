@@ -19,7 +19,7 @@
          <!-- <td class="mood-time">{{mood.created_at}}</td> -->
          <!-- <td class="mood-time">{{timeFormat mood.created_at "MMMM Do, YYYY"}}</td> -->
         <td class="mood-emotion" >{{mood.emotion}}</td>
-        <td class="mood-food">{{mood.food}}</td>
+        <!-- <td class="mood-food">{{mood.food}}</td> -->
         <td><button moodId="{{mood.id}}" moodEmotion="{{mood.emotion}}" type="click" class="btn btn-danger btn delete-mood-button">Delete<span class="glyphicon glyphicon-trash"></span></button></td>
       <td>
         <form id="update-mood-button" moodId="{{mood.id}}" moodEmotion="{{mood.emotion}}">
@@ -29,14 +29,15 @@
       </fieldset>
     </form>
     <td>
-      <form id="add-food-button" moodId="{{mood.id}}" foodId="{{food.id}}">
+      <form id="add-food-button" moodId="{{mood.id}}" foodId="{{food.id}}" foodFoodItem="{{food.food_item}}">
     <fieldset>
       <input type="text" name="food[food_item]" placeholder="Add Food">
       <input type="submit" class="btn btn-success" name="submit" value="Add Food">
     </fieldset>
   </form>
     </td>
-    <td><button moodId="{{mood.id}}" type="click" class="btn btn-info btn view-food-list-button">View Food List</button></td>
+    <td>
+      <button moodId="{{mood.id}}" foodId="{{food.id}}" foodFoodItem="{{food.food_item}}" type="click" class="btn btn-info btn view-food-list-button">View Food List</button></td>
       </td>
       </tr>
   {{/each}}

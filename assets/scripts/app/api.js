@@ -36,6 +36,7 @@ const deleteMood = (moodId) => {
 }
 
 const getUserMoods = () => {
+  console.log('get user moods this is data ', data);
   return $.ajax({
     url: config.apiOrigin + '/moods/',
     method: 'GET',
@@ -45,19 +46,21 @@ const getUserMoods = () => {
   })
 }
 
-const viewFoodList = () => {
-  console.log('view food list api')
+const viewFoodList = (data) => {
+  console.log('view food list api data is ', data)
   return $.ajax({
     url: config.apiOrigin + '/foods/',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    }
+    },
+    data
   })
 }
 
-const addFood = function (moodId, data) {
-  console.log('add food function')
+const addFood = function (data) {
+  // console.log('add food function this is food ', food)
+  console.log('add food function this is data ', data)
   return $.ajax({
     url: config.apiOrigin + '/foods/',
     method: 'POST',

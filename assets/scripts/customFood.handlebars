@@ -15,7 +15,7 @@
         <td class="food-food_item" >{{food.food_item}}</td>
         <td class="food-emotion">{{food.emotion}}</td>
       <td>
-        <form id="add-food-button" moodId="{{mood.id}}">
+        <form id="add-food-button" moodId="{{mood.id}}" foodId="{{food.id}}" foodFoodItem="{{food.food_item}}">
       <fieldset>
         <input type="text" name="food[food_item]" placeholder="Add Food">
         <input type="submit" class="btn btn-success" name="submit" value="Add Food">

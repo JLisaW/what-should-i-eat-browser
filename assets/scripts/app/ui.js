@@ -3,6 +3,7 @@
 const store = require('../store.js')
 const api = require('./api.js')
 const showCustomMoodHB = require('../customMood.handlebars')
+const showCustomFoodHB = require('../customFood.handlebars')
 
 const createMoodSuccess = (response) => {
   api.getUserMoods()
@@ -10,9 +11,8 @@ const createMoodSuccess = (response) => {
     .catch(getUserMoodsFailure)
   console.log('response.mood is ', response.mood);
   const showCustomMoodHtml = showCustomMoodHB({mood: response.mood})
-  $('#content').html(showCustomMoodHtml)
+  $('#handlebar-target').html(showCustomMoodHtml)
   $('form#createMood').trigger('reset')
-  $('#content').show()
 }
 
 const createMoodError = (error) => {
@@ -67,18 +67,17 @@ const deleteMoodFailure = (moodId) => {
   $('form#createMood').trigger('reset')
   $('#content').show()
 }
-const viewFoodListSuccess = (response) => {
+
+const viewFoodListSuccess = (data) => {
+  $('#content').hide()
   const showCustomFoodsHtml = showCustomFoodHB({foods: response.foods})
-  console.log('view food list success response.foods is ', response.foods)
+  console.log('view food list success response.foods is ', response.food)
   $('#handlebar-target').html(showCustomFoodsHtml)
-    $('form#createMood').trigger('reset')
-    $('#content').show()
 }
 
 const viewFoodListFailure = () => {
-  console.log('view food list failure response.foods is ', response.foods)
+  console.log('view food list failure response.foods is ', response.food)
   userMessage('Something went wrong, please try again.')
-  $('form#createMood').trigger('reset')
   $('#content').show()
 }
 
