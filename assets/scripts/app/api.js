@@ -36,7 +36,6 @@ const deleteMood = (moodId) => {
 }
 
 const getUserMoods = () => {
-  console.log('get user moods this is data ', data);
   return $.ajax({
     url: config.apiOrigin + '/moods/',
     method: 'GET',
