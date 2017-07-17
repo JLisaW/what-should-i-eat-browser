@@ -41,12 +41,12 @@ const onUpdateMood = function (event) {
 
 const onViewFoodList = function (event) {
   console.log('on view food list function')
-  console.log('moodId is ', moodId)
-  console.log('data is ', data)
+  console.log('data is ', foodItem)
   event.preventDefault()
   const data = getFormFields(this)
-  const moodId = $(this).attr('moodId')
-  api.viewFoodList(data, moodId)
+  const foodItem = $(this).attr('foodItem')
+  // const moodId = $(this).attr('moodId')
+  api.viewFoodList(foodItem)
     .then(ui.viewFoodListSuccess)
     .catch(ui.viewFoodListFailure)
 }
@@ -55,10 +55,8 @@ const onViewFoodList = function (event) {
 const onAddFood = function (event) {
   console.log('on add food function fired')
   event.preventDefault()
-  const data = getFormFields(this)
   console.log('on add food this is data ', data)
-  // const food = $(this).attr('foodFoodItem')
-  // console.log('on add food this is food ', food)
+  const data = getFormFields(event.target)
   api.addFood(data)
       .then(ui.addFoodSuccess)
       .catch(ui.addFoodError)

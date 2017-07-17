@@ -40,6 +40,7 @@ const updateMoodFailure = (error) => {
 
 const getUserMoodsSuccess = (response) => {
   const showCustomMoodsHtml = showCustomMoodHB({moods: response.moods})
+  console.log('get user mood success response.moods is ', response.moods)
   $('#handlebar-target').html(showCustomMoodsHtml)
   if (response.moods.length === 0) {
     userMessage('You have no custom moods.')
