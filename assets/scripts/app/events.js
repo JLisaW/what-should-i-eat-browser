@@ -29,7 +29,7 @@ const onDeleteMood = function (event) {
     .catch(ui.deleteMoodFailure)
 }
 
-// edit custom moods
+// edit created mood
 const onUpdateMood = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)

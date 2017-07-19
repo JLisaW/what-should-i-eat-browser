@@ -14,13 +14,12 @@ BACKEND DEPLOYED - https://floating-falls-88707.herokuapp.com/
 
 Explanation of project:
 
-The purpose of this application is help users decide what he/she should eat to improve his/her mood.  The user can create an account, create, edit and delete a customized mood list.  These lists will be stored in a database for the user.  The user will need to sign up, sign in, and create his/her custom mood and the foods they associate with it.  There is an update mood and delete button next to each item on the list.
-
+There is a connection between mood and food.  Emotional eating is a way to soothe our negative emotions however, in the long run it can make us feel worse.  The purpose of this application is help users decide what he/she should eat to improve his/her mood.  The user can create an account, create, edit and delete a customized mood list.  These lists will be stored in a database for the user.  The user will need to sign up, sign in, and create his/her custom mood and the foods they associate with it.  There is an update mood and delete button next to each item on the list.
 
 Technologies Used
 
 * Javascript
-* Jquery
+* jQuery
 * Handlebars
 * HTML
 * Bootstrap
@@ -39,7 +38,7 @@ User Stories
 
 Process
 
-I started creating this app by creating user stories to help me determine the user experience I wanted.  I built the backend using Rails which helped me determine the relationships between I started by building the backend to help me determine the API single resource relationships.  I tested the CURL scrips to make sure my functions were running properly on Rails.  Then I started creating the front-end functionality using Javascript, Bootstrap, HTML, Handlebars.  I created a basic HTML/CSS for a visual of what I wanted the app to entail and test the functionalities I was going to create.  Finally I styled the application with CSS.
+I started creating this app by creating user stories to help me determine the user experience I wanted.  I built the back-end using Rails which helped me determine the relationships. I started by building the back-end to help me determine the API single resource relationships.  I tested the CURL scripts to make sure my functions were running properly on Rails.  Then I started creating the front-end functionality using Javascript, Bootstrap, HTML, Handlebars, and jQuery.  I created a basic HTML/CSS for a visual of what I wanted the app to entail and test the functionalities I was going to create.  Finally I styled the application with CSS.
 
 ERD and Wireframes
 
